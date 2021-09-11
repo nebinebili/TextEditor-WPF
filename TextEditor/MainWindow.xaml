@@ -1,0 +1,128 @@
+﻿<Window x:Class="TextEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TextEditor"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1000">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#007991" Offset="0"/>
+                <GradientStop Color="#78ffd6" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid Height="500" Width="900">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*"></RowDefinition>
+                <RowDefinition Height="8*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <WrapPanel>
+                <WrapPanel.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#BBD2C5" Offset="0"></GradientStop>
+                        <GradientStop Color="#536976" Offset="1"></GradientStop>
+                        <GradientStop Color="#292E49" Offset="0"></GradientStop>
+                    </LinearGradientBrush>
+                </WrapPanel.Background>
+                <Menu Height="30" Width="40" Margin="0,0,0,50">
+                    <MenuItem Header="File" FontSize="20">
+                        <MenuItem Header="Open" Click="MenuItem_Click"></MenuItem>
+                        <MenuItem Header="Save" Click="MenuItem_Click"></MenuItem>
+                        <MenuItem Header="Exit" Click="MenuItem_Click"></MenuItem>
+                    </MenuItem>
+                </Menu>
+
+                <TextBox 
+                Height="30" 
+                Width="150"
+                Name="txb_path"
+                IsReadOnly="True"
+                    Margin="30,0,0,0">
+
+                </TextBox>
+
+                <local:ToggleButton 
+                    Height="32" 
+                    Width="66"
+                    Margin="150,20,-80,0" 
+                    MouseLeftButtonDown="ToggleButton_MouseLeftButtonDown"
+                    x:Name="btn_toggle"/>
+                <Label 
+                    Height="30"
+                    Width="100"
+                    Content="Auto Save"
+                    Margin="0,0,0,40"
+                    FontSize="18"
+                    Foreground="White"/>
+
+
+
+
+                <Button
+                Height="50"
+                Width="50"
+                Content="Copy"
+                FontSize="15" 
+                Click="btn_copy_Click"
+                Name="btn_copy"
+                Margin="110,0,0,0"
+                >
+                </Button>
+
+                <Button
+                Height="50"
+                Width="50"
+                Content="Paste"
+                FontSize="15" 
+                Margin="40,0,0,0"
+                Name="btn_paste"
+                Click="btn_paste_Click"
+               >
+                </Button>
+
+                <Button
+                Height="50"
+                Width="50"
+                Content="Cut"
+                FontSize="15" 
+                Margin="40,0,0,0"
+                Name="btn_cut"
+                Click="btn_cut_Click"
+               >
+                </Button>
+
+                <Button
+                Height="50"
+                Width="70"
+                Content="Select All"
+                FontSize="15" 
+                Margin="30,0,0,0"
+                Name="btn_selectall"
+                Click="btn_selectall_Click"
+                
+                >
+                </Button>
+
+
+
+            </WrapPanel>
+
+            <Grid Grid.Row="2">
+                <RichTextBox 
+                Name="rtxtBox" 
+                FontSize="16"
+                PreviewDragEnter="rtxtBox_DragEnter"
+                PreviewDragLeave="rtxtBox_DragLeave"
+                
+                >
+
+                </RichTextBox>
+            </Grid>
+
+        </Grid>
+    </Grid>
+
+</Window>
